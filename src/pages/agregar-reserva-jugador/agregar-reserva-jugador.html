@@ -1,0 +1,75 @@
+<!--
+  Generated template for the AgregarReservaJugadorPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>agregarReserva-jugador</ion-title>
+    <ion-buttons left >
+        <button ion-button (click)="cerrarModal()">
+          <span ion-text color="primary" >Cerrar</span>
+          
+        </button>
+      </ion-buttons>
+
+    <ion-buttons right >
+        <button ion-button (click)="agregarReserva()">
+          <span ion-text color="primary" >Guardar</span>
+          
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="contenidoGeneral">
+
+
+    <ion-list>
+
+        <ion-label class="labelFecha">{{ngNombreDiaSemana | diasSemana}},  {{ngFecha}} de {{ngNombreMes | nombresMeses}} </ion-label>
+        <ion-label class="labelHora">Hora {{ngFranja_inicio | horas}} </ion-label>
+
+
+      <ion-item>
+          <ion-label *ngIf='!ngInvitados' stacked>Invitados: 0</ion-label>
+          <ion-label *ngIf='ngInvitados' stacked>Invitados: {{ngInvitados}}</ion-label>
+          
+          <ion-range min="0" max="3" pin="true" step="1" snaps="true" [(ngModel)]="ngInvitados">
+            <ion-icon range-left name="person"></ion-icon>
+            <ion-icon range-right name="people"></ion-icon>
+          </ion-range>
+      </ion-item>
+
+      <ion-item>
+            <ion-label *ngIf='!ngTramos' stacked>Reserva de: 1 hora</ion-label>
+            <ion-label *ngIf='ngTramos' stacked>Reserva de: {{ngTramos | tramos}}</ion-label>
+            <ion-range min="1" max={{ngElemento2.franja.disponibilidad}} step="1" snaps="true" [(ngModel)]="ngTramos" >
+              <ion-icon small range-left name="time"></ion-icon>
+              <ion-icon range-right name="time"></ion-icon>
+            </ion-range>
+          </ion-item>
+
+      <ion-list radio-group [(ngModel)]="mTipo_reserva" (ionChange)="getTipoReserva($event)" >
+        <ion-item>
+            <ion-label><ion-icon name="tennisball"></ion-icon> Partido</ion-label>
+          <ion-radio value="2" ></ion-radio>
+        </ion-item>
+        <ion-item>
+             <ion-label><ion-icon name="school"></ion-icon> Clase</ion-label>
+          <ion-radio value="1"></ion-radio>
+        </ion-item>
+      </ion-list>
+      <ion-item>
+        <ion-textarea autosize placeholder="Comentarios" [(ngModel)]="ngComentarios"></ion-textarea>
+      </ion-item>
+
+    </ion-list>
+
+
+
+</ion-content>

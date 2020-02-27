@@ -1,0 +1,33 @@
+<ion-menu [content]="content" [swipeEnabled]="false" type="push">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+
+        <ion-row>
+            <ion-col col-4></ion-col>
+            <ion-col col-4>
+              <img  src="assets/imgs/menuImg.png" />
+              <ion-label>Hola Admin</ion-label>
+            </ion-col>
+            <ion-col col-4></ion-col>
+          </ion-row>
+          
+          
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+
+          <ion-row   style="height: 10px"></ion-row>
+          <ion-icon *ngIf="p.title == 'Salir'" name="log-out"></ion-icon> {{p.title}}
+      </button>
+      
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="Disable"></ion-nav>

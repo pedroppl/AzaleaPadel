@@ -1,0 +1,124 @@
+<!--
+  Generated template for the GestionarReservaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+      <ion-buttons left *ngIf="!ngElemento2.franja.reserva">
+        <button ion-button (click)="cerrarModal()">
+          <span ion-text color="primary" >Cancelar</span>
+          
+        </button>
+      </ion-buttons>
+
+      <ion-buttons left *ngIf="ngElemento2.franja.reserva">
+          <button ion-button (click)="cerrarModal()">
+            <span ion-text color="primary" >Cerrar</span>
+            
+          </button>
+        </ion-buttons>
+
+      <ion-buttons right *ngIf="ngElemento2.franja.reserva">
+          <button ion-button (click)="guardarDatos()">
+            <span ion-text color="primary" >Guardar</span>
+            
+          </button>
+        </ion-buttons>
+        <ion-buttons right *ngIf="!ngElemento2.franja.reserva">
+            <button ion-button (click)="agregarReserva()">
+              <span ion-text color="primary" >Guardar</span>
+              
+            </button>
+          </ion-buttons>
+  <ion-title>Gestionar Reserva</ion-title>
+</ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="contenidoGeneral">
+
+  <!-- FORMULARIO A MOSTRAR SI SE VA A EDITAR UNA RESERVA -->
+    <ion-list *ngIf="ngElemento2.franja.reserva">
+        <ion-item>
+          <ion-label stacked>Invitados: {{ngElemento2.franja.detalles_reserva.invitados}}</ion-label>
+          <ion-range min="0" max="3" step="1" pin="true" snaps="true" [(ngModel)]="ngElemento2.franja.detalles_reserva.invitados">
+            <ion-icon range-left name="person"></ion-icon>
+            <ion-icon range-right name="people"></ion-icon>
+          </ion-range>
+        </ion-item>
+
+       
+      <ion-item>
+          <ion-label floating>Comentarios</ion-label>
+          <ion-textarea [(ngModel)]="ngElemento2.franja.detalles_reserva.comentarios"></ion-textarea>
+        </ion-item>
+
+    </ion-list>
+
+
+    <!-- FORMULARIO A MOSTRAR SI SE VA A AGREGAR UNA RESERVA -->
+
+    
+
+    <ion-list *ngIf="!ngElemento2.franja.reserva">
+
+        <ion-label class="labelFecha">{{ngNombreDiaSemana | diasSemana}},  {{ngFecha}} de {{ngNombreMes | nombresMeses}} </ion-label>
+        <ion-label class="labelHora">Hora {{ngFranja_inicio | horas}} </ion-label>
+        <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+        <ion-scroll scrollY="true" style="height: 15rem;">
+          <ion-list radio-group (ionChange)="getIdUsuario($event)">
+          <ion-item-sliding #item ion-item-sliding *ngFor="let usuario of lista_activos" >
+              <ion-item ion-item>
+
+                  <ion-label><ion-icon name="person"></ion-icon> {{usuario.nombre}}</ion-label>
+                  <ion-radio *ngIf="usuario.nombre != 'Anónimo' " value="{{usuario.id_usuario}}"></ion-radio>
+                  <ion-radio *ngIf="usuario.nombre == 'Anónimo' " checked  value="{{usuario.id_usuario}}"></ion-radio>
+              </ion-item>
+
+          </ion-item-sliding>
+        </ion-list>
+        </ion-scroll>
+
+        <ion-row style="height: 10px"></ion-row>
+
+
+      <ion-item>
+          <ion-label *ngIf='!ngInvitados' stacked>Invitados: 0</ion-label>
+          <ion-label *ngIf='ngInvitados' stacked>Invitados: {{ngInvitados}}</ion-label>
+          
+          <ion-range min="0" max="3" pin="true" step="1" snaps="true" [(ngModel)]="ngInvitados">
+            <ion-icon range-left name="person"></ion-icon>
+            <ion-icon range-right name="people"></ion-icon>
+          </ion-range>
+      </ion-item>
+
+      <ion-item>
+            <ion-label *ngIf='!ngTramos' stacked>Reserva de: 1 hora</ion-label>
+            <ion-label *ngIf='ngTramos' stacked>Reserva de: {{ngTramos | tramos}}</ion-label>
+            <ion-range min="1" max={{ngElemento2.franja.disponibilidad}} step="1" snaps="true" [(ngModel)]="ngTramos" >
+              <ion-icon small range-left name="time"></ion-icon>
+              <ion-icon range-right name="time"></ion-icon>
+            </ion-range>
+          </ion-item>
+
+      <ion-list radio-group [(ngModel)]="mTipo_reserva" (ionChange)="getTipoReserva($event)" >
+        <ion-item>
+            <ion-label><ion-icon name="tennisball"></ion-icon> Partido</ion-label>
+          <ion-radio value="2" ></ion-radio>
+        </ion-item>
+        <ion-item>
+             <ion-label><ion-icon name="school"></ion-icon> Clase</ion-label>
+          <ion-radio value="1"></ion-radio>
+        </ion-item>
+      </ion-list>
+      <ion-item>
+        <ion-textarea autosize placeholder="Comentarios" [(ngModel)]="ngComentarios"></ion-textarea>
+      </ion-item>
+
+    </ion-list>
+
+</ion-content>

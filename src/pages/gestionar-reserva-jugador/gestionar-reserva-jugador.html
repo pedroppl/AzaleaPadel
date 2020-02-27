@@ -1,0 +1,47 @@
+<!--
+  Generated template for the GestionarReservaJugadorPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>gestionarReserva-jugador</ion-title>
+    <ion-buttons left >
+        <button ion-button (click)="cerrarModal()">
+          <span ion-text color="primary" >Cancelar</span>
+          
+        </button>
+      </ion-buttons>
+      <ion-buttons right >
+          <button ion-button (click)="guardarDatos()">
+            <span ion-text color="primary" >Guardar</span>
+            
+          </button>
+        </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-list >
+        <ion-item>
+          <ion-label stacked>Invitados: {{ngElemento2.franja.invitados}}</ion-label>
+          <ion-range min="0" max="3" step="1" pin="true" snaps="true" [(ngModel)]="ngElemento2.franja.invitados">
+            <ion-icon range-left name="person"></ion-icon>
+            <ion-icon range-right name="people"></ion-icon>
+          </ion-range>
+        </ion-item>
+
+       
+      <ion-item>
+          <ion-label floating>Comentarios</ion-label>
+          <ion-textarea [(ngModel)]="ngElemento2.franja.comentarios"></ion-textarea>
+        </ion-item>
+
+    </ion-list>
+
+</ion-content>

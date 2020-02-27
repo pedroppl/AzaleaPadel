@@ -1,0 +1,53 @@
+<!--
+  Generated template for the InformacionJugadorPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content padding class="contenidoGeneral">
+
+    <ion-grid>
+        <ion-row>
+          <ion-col col-12 col-md-8 offset-md-2>
+              <ion-card class="cards-list-jugadores" >
+                  <ion-card-header>
+                   {{ngElemento.nombre}} {{ngElemento.apellidos}}
+                    </ion-card-header>
+                    <ion-item>
+                        <ion-icon name="person" item-start></ion-icon> Usuario: {{ngElemento.usuario}}
+                      </ion-item>
+                    <ion-item>
+                        <ion-icon name="person" item-start></ion-icon> Contraseña: ****
+                        <button ion-button outline item-end  icon-end (click)="showPrompt()">
+                          Cambiar
+                          <ion-icon name='hammer' item-start></ion-icon>
+                        </button>
+                    </ion-item>
+                  
+                    <ion-item>
+                        <ion-icon name="call" item-start></ion-icon> Telefono: {{ngElemento.telefono}}
+                    </ion-item>
+   
+                    <ion-item>
+                        <ion-icon name="school" item-start></ion-icon>
+                        Bonos Clase:
+                        <ion-badge item-end>{{ngElemento.bonos_clase}}</ion-badge>
+                            
+                    </ion-item>
+              
+                    <ion-item>
+                        <ion-icon name="tennisball" item-start></ion-icon>
+                        Bonos Partido:
+                        <ion-badge item-end>{{ngElemento.bonos_partido}}</ion-badge>
+                    </ion-item>
+
+            </ion-card>
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+   
+    
+</ion-content>

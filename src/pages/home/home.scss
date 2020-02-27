@@ -1,0 +1,46 @@
+
+.homeContent{
+    background-color: #f4f9f4;
+}
+
+    .migrid {
+        background: #c4e3cb;
+        border-radius: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        margin: 1rem;
+        justify-content: center;
+       
+        
+      }
+      .migrid > div {
+        display: flex; 
+        flex-basis: 50% ;  
+        justify-content: center;
+        flex-direction: column;
+
+        
+        
+      }
+      
+     
+      .migrid > div > div {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      #imagenHomeUsuarios{
+          height: auto;
+          width: 150px;
+          
+      }
+
+
+    .titulo, .total{
+        font-size: 3rem;
+        color: #616161;
+    }
+
+

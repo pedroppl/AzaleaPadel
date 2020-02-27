@@ -1,0 +1,14 @@
+ion-card.cards-list-jugadores ion-card-header {
+    color: white;
+    background-color: #8aae92;
+  }
+
+  ion-card.cards-list-jugadores ion-item{
+     // background-color: map-get($colors, light );
+      border-bottom:solid map-get($colors , dark ) 1px;
+
+      background-color: #c4e3cb;
+      color: black;
+  }
+
+  

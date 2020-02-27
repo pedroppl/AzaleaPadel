@@ -1,0 +1,54 @@
+<!--
+  Generated template for the DetallesReservaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+
+      <ion-navbar>
+          <ion-buttons left>
+              <button ion-button (click)="cerrarModal()">
+                <span ion-text color="primary" >Cancel</span>
+                
+              </button>
+            </ion-buttons>
+        <ion-title>Detalles Reserva</ion-title>
+      </ion-navbar>
+
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card >
+        <ion-card-content>
+           
+          <ion-card-title>
+           {{ngElemento.detalles_reserva.franja_inicio | horas}} {{ngElemento.detalles_reserva.nombre}}
+            </ion-card-title>
+            <p>
+                <ion-icon name="time"></ion-icon> Reserva: 
+                <label *ngIf='ngElemento.detalles_reserva.tramos_reservados == 1'>1 hora</label>
+                <label *ngIf='ngElemento.detalles_reserva.tramos_reservados == 2'>1 hora y 30 minutos</label>
+                <label *ngIf='ngElemento.detalles_reserva.tramos_reservados == 3'>2 horas</label>
+            </p>
+            <p>
+                <ion-icon name="tennisball"></ion-icon> Pista: {{ngPista}}
+            </p>
+            <p>
+                <ion-icon name="person"></ion-icon> Invitados: {{ngElemento.detalles_reserva.invitados}}
+            </p>
+         
+            
+          <p *ngIf='ngElemento.detalles_reserva.comentarios == "" '>
+              <label><ion-icon name="paper"></ion-icon> Comentario:</label> No hay comentarios
+          </p>
+          <p *ngIf='ngElemento.detalles_reserva.comentarios != "" '>
+              <label><ion-icon name="paper"></ion-icon> Comentario:</label> {{ngElemento.detalles_reserva.comentarios}}
+            </p>
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>

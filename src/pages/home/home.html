@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="contenidoGeneral">
+
+    <ion-grid>
+        <ion-row>
+          <ion-col col-12 col-md-8 offset-md-2>
+            <div class="migrid" (click)="abreUsuariosPage()">
+              <div class="box">
+                <div>
+                  <img id="imagenHomeUsuarios"  src="assets/imgs/usuariosHome.png" />
+                </div>
+              </div>
+            
+              <div class="box">
+                <div>
+                
+                <h2 class="titulo">Clientes</h2>
+                <h2 class="total">{{ngClientes}} 123</h2>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="migrid" (click)="abreReservasPage()">
+              <div class="box">
+                <div>
+                  <img id="imagenHomeUsuarios"  src="assets/imgs/tennis-court.png" />
+                </div>
+              </div>
+            
+              <div class="box">
+                <div>
+                
+                  <h2 class="titulo">Reservas</h2>
+                  <h2 class="total">{{ngReservas}} 4</h2>
+               </div>
+              </div>
+        
+             </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+            
+</ion-content>

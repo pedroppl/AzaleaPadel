@@ -1,0 +1,49 @@
+<!--
+  Generated template for the InformacionReservasJugadorPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-content padding class="contenidoGeneral">
+
+    <ion-list>
+    <!-- <ion-item #item ion-item-sliding  > -->
+        <ion-card class="cardInfoReservaJugador" *ngFor="let ngElemento of lista_reservas">
+            <ion-card-content (click)="presentActionSheet(ngElemento)">
+                
+                <ion-card-title>
+                 <ion-label >{{ngElemento.ngNombreDiaSemana | diasSemana}},  {{ngElemento.ngFecha}} de {{ngElemento.ngNombreMes | nombresMeses}} </ion-label>
+                 <ion-label >Hora {{ngElemento.franja_inicio | horas}} </ion-label>
+                
+                </ion-card-title>
+                    <p>
+                        <ion-icon name="time"></ion-icon> Reserva: 
+                        <label>{{ngElemento.tramos_reservados | tramos}}</label>
+                    </p>
+                    <p>
+                        <ion-icon name="tennisball"></ion-icon> Pista: {{ngElemento.id_pista}}
+                    </p>
+                    <p>
+                        <ion-icon name="person"></ion-icon> Invitados: {{ngElemento.invitados}}
+                    </p>
+                    <p *ngIf='ngElemento.comentarios == "" '>
+                        <label><ion-icon name="paper"></ion-icon> Comentario:</label> No hay comentarios
+                    </p>
+                    <p *ngIf='ngElemento.comentarios != "" '>
+                        <label><ion-icon name="paper"></ion-icon> Comentario:</label> {{ngElemento.comentarios}}
+                    </p>
+            </ion-card-content>
+        </ion-card>
+        
+        
+        <!-- </ion-item> -->
+    </ion-list>
+
+
+
+         
+
+
+</ion-content>

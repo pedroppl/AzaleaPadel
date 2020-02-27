@@ -1,0 +1,58 @@
+<!--
+  Generated template for the AgregarJugadorPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+       
+        <ion-buttons left>
+          <button ion-button (click)="closeModal()">
+              cerrar
+          </button>
+        </ion-buttons>
+        <ion-title>{{titulo}}</ion-title>
+      </ion-navbar>
+
+      
+</ion-header>
+
+<ion-content padding class="contenidoGeneral">
+    <ion-list>
+
+        <ion-item class="listaAgregarJugador">
+          <ion-label floating>Nombre</ion-label>
+          <ion-input  [(ngModel)]="usuario.nombre" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item class="listaAgregarJugador">
+          <ion-label floating>Telefono</ion-label>
+          <ion-input [(ngModel)]="usuario.telefono" type="number"></ion-input>
+        </ion-item>
+
+        <ion-item class="listaAgregarJugador">
+          <ion-label floating>Correo Electronico</ion-label>
+          <ion-input [(ngModel)]="usuario.email" type="email"></ion-input>
+        </ion-item>
+
+        <ion-item class="listaAgregarJugador">
+            <ion-label floating >Categoria</ion-label>
+            <ion-select [(ngModel)]="usuario.categoria">
+              <ion-option value="cat1">cat1</ion-option>
+              <ion-option value="cat2">cat2</ion-option>
+              <ion-option value="cat3">cat3</ion-option>
+              <ion-option value="cat4">cat4</ion-option>
+              <ion-option value="cat5">cat5</ion-option>
+              <ion-option value="cat6">cat6</ion-option>
+            </ion-select>
+          </ion-item>
+
+        
+      </ion-list>
+     
+          <button class="btnAgregarUsu"  ion-button block color="light" *ngIf="nuevo" (click)="agregarUsu()">Agregar</button>
+          <button class="btnEditarUsu" ion-button block  color="light" *ngIf="!nuevo" (click)="editarUsu()">Editar</button>
+      
+</ion-content>

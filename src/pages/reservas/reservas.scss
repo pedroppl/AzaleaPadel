@@ -1,0 +1,52 @@
+
+.slide-zoom{
+    height: 100%;
+}
+
+#contenedorFlechas{
+    background-color: #f4f9f4;
+}
+#imgPistas{
+    height: 35px;;
+}
+
+
+#franjaLibre{
+    background-color: #c4e3cb;
+    color: black;
+    margin-top: 5px;
+   // border-radius: 10px;
+}
+#franjaLibre p{
+
+    color: black;
+    
+}
+
+#franjaNula{
+    background-color: #df0054;
+    margin-top: 5px;
+   // border-radius: 10px;
+    color: whitesmoke
+}
+#franjaNula p{
+    
+    color: whitesmoke;
+}
+
+#franjaReservada{
+    background-color: #ffa258;
+    margin-top: 5px;
+   // border-radius: 10px;
+}
+#franjaReservada p{
+
+    color: black;
+}
+
+.item-md.item-block .item-inner {
+    border-color: transparent;
+  }
+  .item-ios.item-block .item-inner {
+    border-color: transparent;
+  }

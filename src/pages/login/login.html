@@ -1,0 +1,49 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-content padding text-center class="loginContent">
+    
+    <ion-grid>
+        <ion-row>
+          <ion-col col-12 col-md-8 offset-md-2>
+
+                  <ion-row>
+                    <ion-col col-4></ion-col>
+                    <ion-col col-4>
+                      <img id="imgLogin" src="assets/imgs/tennis.png" />
+                    </ion-col>
+                    <ion-col col-4></ion-col>
+                  </ion-row>
+                
+            <ion-card>
+              <ion-card-content>
+
+                      <ion-item id="usuarioLogin">
+                         <ion-label floating><ion-icon name="person"></ion-icon> Usuario</ion-label>
+                         <ion-input [(ngModel)]="ngUsu" type="text" value="pedro_admin"></ion-input>
+                         
+                      </ion-item>
+                      <ion-item id="claveLogin">
+                        <ion-label floating><ion-icon name="key"></ion-icon> Clave</ion-label>
+                        <ion-input  [(ngModel)]="ngClave" type="password" value="1234"></ion-input>
+                      </ion-item>
+                   
+                   
+              </ion-card-content>
+                  
+                      <button id="botonLogin" ion-button full color="light" (click)="login()">Conectar</button>
+                     
+                 
+              
+            </ion-card>
+            <button  ion-button clear color="primary" (click)="crearUsuario()">Registrarse</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+   
+  </ion-content>
